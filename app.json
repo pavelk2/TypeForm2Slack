@@ -1,0 +1,28 @@
+{
+  "name": "TypeForm2Slack",
+  "description": "A script inviting people registered through TypeForm to Slack team",
+  "repository": "https://github.com/pavelk2/TypeForm2Slack",
+  "keywords": ["typeform", "slack","invite"],
+  "env": {
+    "HEROKU_URL": {
+      "description": "The URL of this Heroku app.",
+      "value": "http://YOURAPPNAME.herokuapp.com"
+    },
+    "TYPEFORM_API_KEY": {
+      "description": "API_KEY of your Typeform account",
+      "required": true
+    },
+    "TYPEFORM_FORM_ID": {
+      "description": "ID of your Typeform form",
+      "required": true
+    },
+    "SLACK_API_TOKEN": {
+      "description": "Token of your Slack integration",
+      "required": true
+    },
+    "SLACK_TEAM": {
+      "description": "ID of your team on Slack",
+      "required": true
+    }
+  } 
+}
