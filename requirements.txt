@@ -1,1 +1,2 @@
-requirements.txt
+Flask==0.12
+requests==2.14.2
