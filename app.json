@@ -20,7 +20,7 @@
       "description": "Token of your Slack integration",
       "required": true
     },
-    "SLACK_TEAM": {
+    "g": {
       "description": "ID of your team on Slack",
       "required": true
     }

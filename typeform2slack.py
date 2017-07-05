@@ -33,7 +33,7 @@ def sendSlackInvites(email, slack_token, slack_team):
     url = "https://"+slack_team+".slack.com/api/users.admin.invite"
 
     r = requests.post(url, data = payload, headers=headers)
-    print r.json()
+    print(r.json())
 
 if __name__ == "__main__":
 
