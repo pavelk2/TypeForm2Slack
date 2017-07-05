@@ -1,8 +1,14 @@
 import requests
 import json
+import os
 
-def getFromTypeForm(form_id, typeform_API_KEY):
-    url = "https://api.typeform.com/v0/form/"+form_id+"?key="+typeform_API_KEY+"&completed=true"
+typeform_form_id = os.environ['TYPEFORM_FORM_ID']
+typeform_API_KEY = os.environ['TYPEFORM_API_KEY']
+slack_token = os.environ['SLACK_API_TOKEN']
+slack_team = os.environ['SLACK_TEAM']
+
+def getFromTypeForm(typeform_id, typeform_API_KEY):
+    url = "https://api.typeform.com/v0/form/"+typeform_id+"?key="+typeform_API_KEY+"&completed=true"
     
     r = requests.get(url)
     results = r.json()
@@ -30,8 +36,7 @@ def sendSlackInvites(email, slack_token, slack_team):
     print r.json()
 
 if __name__ == "__main__":
-    with open('credentials.json') as credentials_file:
-        credentials = json.load(credentials_file)
-    emails = getFromTypeForm(credentials['typeformID'],credentials['typeformAPI_KEY'])
+
+    emails = getFromTypeForm(typeform_form_id, typeform_API_KEY)
     for email in emails:
-        sendSlackInvites(email, credentials['slackAPI_KEY'], credentials['slackTEAM'])
+        sendSlackInvites(email, slack_token, slack_team)
